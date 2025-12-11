@@ -1,11 +1,15 @@
 import sys
 
-if len(sys.argv) < 2:
-    print("Usage: python main.py score1 score2 ... scoreN")
-    sys.exit(1)
+default_scores = [75, 88, 92, 67, 81]
 
-scores = [float(s) for s in sys.argv[1:]]
+if len(sys.argv) > 1:
+    scores = [float(s) for s in sys.argv[1:]]
+    source = "User Input"
+else:
+    scores = default_scores
+    source = "Self-assigned"
 
+print(f"Scores: {scores} ({source})")
 print("Sum:", sum(scores))
 print("Average:", sum(scores) / len(scores))
 print("Maximum:", max(scores))
